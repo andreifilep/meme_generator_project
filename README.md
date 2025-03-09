@@ -1,5 +1,5 @@
 # Meme Generator
-![Select approriate link](./static/18903057.jpg)  
+![](./static/18903057.jpg)  
 ## Description
 The meme generator app is a small application designed to generate memes from 2 sources - Internet link for picture with a custom text and author or from a given database of pictures and texts.  
 The code comes with a small collection of pictures and quotes supplied by Udacity and some additional quotes found online (https://woofsie.com/blogs/news/funny-dog-quotes, https://woofsie.com/blogs/news/dog-mom-quotes) and some pictures saved also from the given links.  
@@ -15,7 +15,7 @@ Both interfaces save generated memes to the hard drive in the folders static and
 
 ## Prereqisites
 * Download and insatll the [pdftotext](https://www.xpdfreader.com/download.html) command line tool.  
-![Select approriate link](./_xpdf_help/pdftotext.jpg)  
+![](./_xpdf_help/pdftotext.jpg)  
 * Install all dependencies necessary to run the code given in the requirements.txt file.  
 * Install custom font, if desired and modify code in MemeEngine\memeengine.py in the function set_font.  
 Current font is provided in \_data\fonts and was downloaded from [Google fonts](https://fonts.google.com/specimen/Leckerli+One).  
@@ -24,8 +24,12 @@ Current font is provided in \_data\fonts and was downloaded from [Google fonts](
 * It is recomended to create a virtual environment for this project.  
 When using Anaconda, create a virtual environment with:  
 ````conda create--name myvirtenv (use an appropriate name)````  
+* Clone repository:
+```git clone https://github.com/andreifilep/meme_generator_project```
 * Activate virtual environment
 ````conda activate myvirtenv````
+* Install dependencies given in the ``requirements.txt`` file.  
+```pip install -r requirements.txt```
 * To deactivate, use:
 ````conda deactivate````
 
