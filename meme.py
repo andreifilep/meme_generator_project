@@ -10,7 +10,7 @@ from MemeEngine import MemeEngine
 
 
 def generate_meme(path=None, body=None, author=None):
-    """ Generate a meme given a path and a quote """
+    """Generate a meme given a path and a quote."""
     img = None
     quote = None
 
@@ -59,4 +59,5 @@ if __name__ == "__main__":
     # author - quote author to add to the image
     parser.add_argument('--author', type=str)
     args = parser.parse_args()
-    print(f'Your meme was saved at {generate_meme(args.path, args.body, args.author)}')
+    print(f'Your meme was saved at '
+          f'{generate_meme(args.path, args.body, args.author)}')

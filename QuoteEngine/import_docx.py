@@ -23,7 +23,9 @@ class DocxImporter(IngestorInterface):
         for para in doc.paragraphs:
             if para.text != "":
                 parse = para.text.split('-')
-                new_quote = QuoteModel(parse[0].replace('"', ''), parse[1].replace('"', ''))
+                new_quote = QuoteModel(
+                    parse[0].replace('"', ''),
+                    parse[1].replace('"', ''))
                 quotes.append(new_quote)
 
         return quotes

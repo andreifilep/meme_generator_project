@@ -7,6 +7,7 @@ from .quote_model import QuoteModel
 
 class IngestorInterface(ABC):
     """Abstract base class for parsing quotes."""
+
     allowed_extensions = []
 
     @classmethod
@@ -18,4 +19,4 @@ class IngestorInterface(ABC):
     @classmethod
     @abstractmethod
     def parse(cls, path: str) -> List[QuoteModel]:
-        """Return quote_model"""
+        """Return quote_model."""

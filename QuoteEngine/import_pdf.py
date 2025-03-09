@@ -26,14 +26,15 @@ class PDFImporter(IngestorInterface):
             stderr=subprocess.STDOUT
         )
 
-
         quotes = []
         file_temp = open(tmp, "r")
 
         for line in file_temp.readlines():
             line = line.strip('\n\r').strip()
             if len(line) > 0:
-                new_quote = QuoteModel(line.split('-')[0].replace('"', ''), line.split('-')[1])
+                new_quote = QuoteModel(
+                    line.split('-')[0].replace('"', ''),
+                    line.split('-')[1])
                 quotes.append(new_quote)
 
         file_temp.close()

@@ -1,4 +1,4 @@
-"""Class for a quote data model"""
+"""Class for a quote data model."""
 
 
 class QuoteModel:

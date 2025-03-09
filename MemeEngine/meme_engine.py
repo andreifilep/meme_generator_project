@@ -1,15 +1,13 @@
-"""
-Module is responsible for manipulating and drawing text onto images.
-"""
+"""Module is responsible for manipulating and drawing text onto images."""
+
 import os.path
 import random
 from PIL import Image, ImageDraw, ImageFont
 
 
 class MemeEngine:
-    """
-    Class generates memes and saves to given directory.
-    """
+    """Class generates memes and saves to given directory."""
+
     def __init__(self,
                  out_dir: str = '',
                  in_path: str = None,
@@ -44,9 +42,7 @@ class MemeEngine:
         self.img = Image.open(in_path)
 
     def resize_image(self, width: int) -> None:
-        """
-        Resize image to a width of 500 pixel maintaining original aspect ratio.
-        """
+        """Resize image maintaining original aspect ratio."""
         orig_width, orig_height = self.img.size
 
         if orig_width is not None:
@@ -56,7 +52,8 @@ class MemeEngine:
             self.quote_position = random.choice(range(30, height - 50))
 
     def set_font(self) -> None:
-        """
+        """Set font type and size.
+
         Set font to LeckerliOne-Regular.
         Set body font dimension to 28.
         Set author font dimension to 20.
@@ -78,8 +75,8 @@ class MemeEngine:
         return file_path
 
     def make_meme(self, in_path: str, text: str, author: str, width: int = 500) -> str:
-        """
-        Create meme and save.
+        """Create meme and save.
+
         :param str. in_path: Path to the image
         :param str. text: quote text
         :param str. author: quote author
@@ -95,7 +92,12 @@ class MemeEngine:
         # Superimpose text on image
         meme = ImageDraw.Draw(self.img)
         meme.text((30, self.quote_position), text, self.fill, self.font_text)
-        meme.text((360, self.quote_position + 30), author, self.fill, self.font_author)
+        meme.text(
+            (360,
+             self.quote_position + 30),
+            author, self.fill,
+            self.font_author
+        )
 
         # save meme
         return self.save_image()

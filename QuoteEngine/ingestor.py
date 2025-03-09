@@ -1,4 +1,7 @@
-"""Realize the IngestorInterface abstract base class and encapsulate helper classes"""
+"""Realize the IngestorInterface.
+
+IngestorInterface abstract base class and encapsulate helper classes.
+"""
 from typing import List
 
 from .ingestor_interface import IngestorInterface
@@ -11,6 +14,7 @@ from .import_pdf import PDFImporter
 
 class Ingestor(IngestorInterface):
     """Encapsulates quote ingestor classes for known file types."""
+
     importers = [DocxImporter, CSVImporter, TXTImporter, PDFImporter]
 
     @classmethod
