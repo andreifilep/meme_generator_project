@@ -1,9 +1,15 @@
+"""
+Module is responsible for manipulating and drawing text onto images.
+"""
 import os.path
 import random
 from PIL import Image, ImageDraw, ImageFont
 
 
 class MemeEngine:
+    """
+    Class generates memes and saves to given directory.
+    """
     def __init__(self,
                  out_dir: str = '',
                  in_path: str = None,
@@ -15,16 +21,16 @@ class MemeEngine:
                  width: int = None,
                  quote_position=None,
                  ):
-
+        """Set up parameters."""
         self.out_dir = out_dir
-        self.in_path = in_path,
-        self.quote_text = quote_text,
-        self.quote_author = quote_author,
+        self.in_path = in_path
+        self.quote_text = quote_text
+        self.quote_author = quote_author
         self.img = None
         self.font_path = font_path
         self.font_text = font_text
         self.font_author = font_author
-        self.width = width,
+        self.width = width
         self.quote_position = quote_position
         self.fill = (255, 255, 0)
 
@@ -38,21 +44,30 @@ class MemeEngine:
         self.img = Image.open(in_path)
 
     def resize_image(self, width: int) -> None:
+        """
+        Resize image to a width of 500 pixel maintaining original aspect ratio.
+        """
         orig_width, orig_height = self.img.size
 
         if orig_width is not None:
             ratio = width / float(orig_width)
             height = int(ratio * float(orig_height))
-            self.img = self.img.resize((width, height), Image.NEAREST)
+            self.img = self.img.resize((width, height))
             self.quote_position = random.choice(range(30, height - 50))
 
     def set_font(self) -> None:
+        """
+        Set font to LeckerliOne-Regular.
+        Set body font dimension to 28.
+        Set author font dimension to 20.
+        """
         # Select font type, size, color and text position
         self.font_path = "./_data/fonts/LeckerliOne-Regular.ttf"
         self.font_text = ImageFont.truetype(self.font_path, 28)
         self.font_author = ImageFont.truetype(self.font_path, 20)
 
     def save_image(self):
+        """Save image to given path."""
         file_path = os.path.abspath(
             os.path.join(
                 self.out_dir,
@@ -63,6 +78,15 @@ class MemeEngine:
         return file_path
 
     def make_meme(self, in_path: str, text: str, author: str, width: int = 500) -> str:
+        """
+        Create meme and save.
+        :param str. in_path: Path to the image
+        :param str. text: quote text
+        :param str. author: quote author
+        :param int width: meme width
+
+        :return: str. meme path
+        """
         self.load_image(in_path)
         self.resize_image(width)
         self.set_font()

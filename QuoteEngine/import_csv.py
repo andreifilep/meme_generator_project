@@ -1,3 +1,5 @@
+"""Import quotes from known file types."""
+
 from typing import List
 import pandas as pd
 from .quote_model import QuoteModel

@@ -1,3 +1,5 @@
+"""Import quotes from known file types."""
+
 from typing import List
 import docx
 from .quote_model import QuoteModel

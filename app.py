@@ -1,8 +1,10 @@
+"""Flask web app for meme generation."""
+
 import random
 import os
-import requests
-from flask import Flask, render_template, abort, request
 from itertools import chain
+import requests
+from flask import Flask, render_template, request
 
 from QuoteEngine import Ingestor
 from MemeEngine import MemeEngine
@@ -66,7 +68,7 @@ def meme_post():
     """ Create a user defined meme """
 
     img_url: str = request.form.get("image_url")
-    req = requests.get(img_url)
+    req = requests.get(img_url, timeout=10)
     tmp = f'./tmp/{random.randint(0, 100000000)}.jpg'
 
     with open(tmp, 'wb') as open_file:

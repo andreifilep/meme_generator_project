@@ -1,3 +1,4 @@
+"""Realize command line interface."""
 import os
 import random
 import argparse

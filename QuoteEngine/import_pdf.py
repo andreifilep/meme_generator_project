@@ -1,3 +1,5 @@
+"""Import quotes from known file types."""
+
 from typing import List
 import os
 import subprocess
@@ -18,7 +20,11 @@ class PDFImporter(IngestorInterface):
             raise ValueError(f'File type not supported for {path}')
 
         tmp = './temp.txt'
-        call = subprocess.call(['pdftotext', '-layout', path, tmp], shell=True, stderr=subprocess.STDOUT)
+        call = subprocess.call(
+            ['pdftotext', '-layout', path, tmp],
+            shell=True,
+            stderr=subprocess.STDOUT
+        )
 
 
         quotes = []

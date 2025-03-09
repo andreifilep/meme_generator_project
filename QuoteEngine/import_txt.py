@@ -1,3 +1,5 @@
+"""Import quotes from known file types."""
+
 from typing import List
 from .quote_model import QuoteModel
 from .ingestor_interface import IngestorInterface
